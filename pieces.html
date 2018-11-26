@@ -1,0 +1,67 @@
+<HTML LANG="es">
+<HEAD>
+  <div style="background: darkgray;">
+   <LINK REL="stylesheet" TYPE="text/css" HREF="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <img src="Images/rowers.png" width="5%" height="5%" class="center">
+    <a href="profile.html"><img id="profile" src="" width="5%" class="right"></a>
+  <hr>
+  </div>
+</HEAD>
+<BODY style="background: lightgray;">
+  <div class="container"> 
+   <div >
+    <ul style="list-style: none;" id="piecesul">
+      <li>Pieces</li>
+      <li id="tittle">#1 - 10 @' 20<button id="button1" onClick="window()">Results</button></li>
+      <li id="tittle">#2 - 10 @' 22<button id="button2" onClick="window()">Results</button></li>
+      <li id="tittle">#3 - 10 @' 24<button id="button3" onClick="window()">Results</button></li>
+      <li id="tittle">#4 - 10 @' 22<button id="button4" onClick="window()">Results</button></li>
+    </ul>
+   </div>
+ </div>
+</BODY>
+<FOOTER>
+  <div id="bottombuttons" style="background: darkgray;">
+    <div class="row">
+      <div class="column">
+         <a href="Index.html"><img src="Images/home.png" width="50%" class="center"><label id="bottomtext">Home</label></a>
+      </div>
+      <div class="column">
+         <a href="roster.html"><img src="Images/people.png" width="50%" class="center"><label id="bottomtext">Roster</label></a>
+      </div>
+      <div class="column">
+         <a href="pieces.html"><img src="Images/timer.png" width="50%" class="center"><label id="bottomtext">Pieces</label></a>
+      </div>
+      <div class="column">
+         <a href="calendar.html"><img src="Images/calendar.png" width="50%" class="center"><label id="bottomtext">Calendar</label></a>
+      </div>
+      <div class="column">
+         <a href="weather.html"><img src="Images/weather.png" width="50%" class="center"><label id="bottomtext">Weather</label></a>
+      </div>
+    </div>
+    <hr> 
+</FOOTER> 
+<script>
+var user = window.sessionStorage.getItem('user');
+
+if(user != null){
+  if (user  == "Coach"){
+        document.getElementById("profile").src = "Images/C.png";
+      }
+      else{
+        document.getElementById("profile").src = "Images/profile.png";
+      }
+}
+else{
+  document.getElementById("profile").src = "Images/user.png";
+}
+
+function window(){
+	window.sessionStorage.setItem('piece', document.getElementById('title').innerHTML);
+	MyWindow=window.open('pieces-popup.html','MyWindow',width=600,height=300);
+	return false;
+}
+
+</script>
+</HTML>

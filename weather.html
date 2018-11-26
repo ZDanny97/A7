@@ -1,0 +1,69 @@
+<HTML LANG="es">
+<HEAD>
+  <div style="background: darkgray;">
+   <LINK REL="stylesheet" TYPE="text/css" HREF="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <img src="Images/rowers.png" width="5%" height="5%" class="center">
+    <a href="profile.html"><img id="profile" src="" width="5%" class="right"></a>
+  <hr>
+  </div>
+</HEAD>
+<BODY >
+<div id="dayslist" style="background: lightgray;">
+    <hr>
+  </div>
+  <div id="topbuttons" style="background: darkgray;">
+    <div class="row">
+      <div class="column" id="weather">
+        <iframe style="position: relative; top: 20%; transform: translateY(-50%);transform: translateX(40%); margin:0 auto; display: block;" src="https://cdnres.willyweather.com/widget/loadView.html?id=97309" width="120" height="171" frameborder="0" scrolling="no"></iframe><a style="z-index: 1;margin: -20px 0 0 0;display: block;position: relative;height: 20px;text-indent: -9999em" href="https://www.willyweather.com/ca/san-diego-county/san-diego.html" rel="nofollow">San Diego weather</a>
+      </div>
+      <div class="column" id="wind">
+        <iframe style="position: relative; top: 20%; transform: translateY(-50%);transform: translateX(10%); margin:0 auto; display: block;" src="https://cdnres.willyweather.com/widget/loadView.html?id=97311" width="210" height="171" frameborder="0" scrolling="no"></iframe><a style="position: relative;display: block;text-indent: -9999em;height: 20px;z-index: 1;margin: -20px 0 0 0" href="https://www.willyweather.com/ca/san-diego-county/san-diego.html" rel="nofollow">local wind</a>
+      </div>
+      <div class="column">
+        <a href="http://portal.hdontap.com/s/embed/?stream=catamaran-ptz_eh-CUST&amp;ratio=16:9"><img style="position: relative; transform: translateX(10%); margin:0 auto; display: block; padding-top:10%;" src="Images/camera.jpg" width="40%" class="center"></a>
+      </div>
+      <div class="column" id="waves">
+        <iframe style="position: relative; top: 20% ;transform: translateX(-40%); margin:0 auto; display: block;"  src="https://cdnres.willyweather.com/widget/loadView.html?id=97312" width="120" height="171" frameborder="0" scrolling="no"></iframe><a style="position: relative;z-index: 1;margin: -20px 0 0 0;height: 20px;text-indent: -9999em;display: block" href="https://www.willyweather.com/ca/san-diego-county/san-diego.html" rel="nofollow">san diego's tides</a>
+      </div>
+    </div>
+    <hr> 
+  </div>
+  </BODY>
+<FOOTER>
+  <div id="bottombuttons" style="background: darkgray;">
+    <div class="row">
+      <div class="column">
+         <a href="Index.html"><img src="Images/home.png" width="50%" class="center"><label id="bottomtext">Home</label></a>
+      </div>
+      <div class="column">
+         <a href="roster.html"><img src="Images/people.png" width="50%" class="center"><label id="bottomtext">Roster</label></a>
+      </div>
+      <div class="column">
+         <a href="pieces.html"><img src="Images/timer.png" width="50%" class="center"><label id="bottomtext">Pieces</label></a>
+      </div>
+      <div class="column">
+         <a href="calendar.html"><img src="Images/calendar.png" width="50%" class="center"><label id="bottomtext">Calendar</label></a>
+      </div>
+      <div class="column">
+         <a href="weather.html"><img src="Images/weather.png" width="50%" class="center"><label id="bottomtext">Weather</label></a>
+      </div>
+    </div>
+    <hr> 
+</FOOTER> 
+<script>
+var user = window.sessionStorage.getItem('user');
+
+if(user != null){
+  if (user  == "Coach"){
+        document.getElementById("profile").src = "Images/C.png";
+      }
+      else{
+        document.getElementById("profile").src = "Images/profile.png";
+      }
+}
+else{
+  document.getElementById("profile").src = "Images/user.png";
+}
+</script>
+</HTML>
