@@ -3,8 +3,8 @@
   <div style="background: darkgray;">
    <LINK REL="stylesheet" TYPE="text/css" HREF="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <img src="Images/rowers.png" width="5%" height="5%" class="center">
-    <a href="profile.html"><img id="profile" src="" width="5%" class="right"></a>
+    <a href="Index.html"><img src="Images/rowers.png" width="25%"class="center"></a>
+    <a href="profile.html"><img id="profile" src="" width="15%" class="right"></a>
   <hr>
   </div>
 </HEAD>
@@ -21,9 +21,9 @@
          </div>
       </div>
       <div id="workout-container" style="display:none; background: lightgray;">
-        <textarea id="notes" style="border:gray;" rows="10" cols="50">
+        <textarea id="notes" style="border:gray;" rows="10" cols="50" disabled>
         </textarea>
-        <button id="editNotes" onclick="notes()">Edit Notes</button></li>
+        <button id="editNotes" style="display:hidden" onclick="notes()">Edit Notes</button></li>
       </div>
     </div>  
   <hr>    
@@ -33,9 +33,6 @@
 <FOOTER>
   <div id="bottombuttons" style="background: darkgray;">
     <div class="row">
-      <div class="column">
-         <a href="Index.html"><img src="Images/home.png" width="50%" class="center"><label id="bottomtext">Home</label></a>
-      </div>
       <div class="column">
          <a href="roster.html"><img src="Images/people.png" width="50%" class="center"><label id="bottomtext">Roster</label></a>
       </div>
@@ -154,6 +151,8 @@ if(user != null){
   if (user  == "Coach"){
         document.getElementById("profile").src = "Images/C.png";
         document.getElementById("add").style.display="unset";
+        document.getElementById("notes").disabled = false;
+        document.getElementById("editNotes").style.display="unset";
       }
       else{
         document.getElementById("profile").src = "Images/profile.png";
