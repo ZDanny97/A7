@@ -11,12 +11,31 @@
   <div id="content">
     <div>
       <h1>Schedule</h1>
-      <img id="profile" src="Images/schedule.png" style="padding-left:3%;">
-      <h2>Erg sheet</h2>
-      <h2>Weights sheet</h2>
+      <div id="uploadSchedule" style="display:none;">
+        <input type="file" id="uploadS" accept="application/pdf,application/vnd.ms-excel,image/*" />
+        <button onclick="uploadSchedule()">Upload this week Schedule</button>
       </div>
-    </div>  
-  </div>
+      <div id="downloadSchedule" style="display:none;">
+        <a href="https://firebasestorage.googleapis.com/v0/b/b-a-b-7bbf8.appspot.com/o/Tritons%2FSchedule?alt=media&token=8c512002-cca4-4ec3-943b-0dd86e487b59" download>Download this week Schedule</a>
+      </div>
+      <h1>Erg sheet</h1>
+      <div id="uploadProfile" style="display:none;">
+        <input type="file" id="uploadP" accept="application/pdf,application/vnd.ms-excel,image/*" />
+        <button onclick="uploadProfile()">Upload this week Ergs Profile</button>
+      </div>
+      <div id="downloadProfile" style="display:none;">
+          <a href="">Download this week Ergs Profile</a>
+      </div>
+      <h1>Weights sheet</h1>
+      <div id="uploadWeight" style="display:none;">
+        <input type="file" id="uploadW" accept="application/pdf,application/vnd.ms-excel,image/*" />
+        <button onclick="uploadWeight()">Upload this week Weights sheet</button>
+      </div>
+      <div id="downloadWeight" style="display:none;">
+          <a href="">Download this week Weights sheet</a>
+      </div>
+      </div>
+  </div>  
 </BODY>
 <FOOTER>
   <div id="bottombuttons" style="background: darkgray;">
@@ -35,5 +54,61 @@
       </div>
     </div>
     <hr> 
-</FOOTER> 
+</FOOTER>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+// Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC4yRQTqH8kprU56QhfVq0e5Yp6NXmzBrw",
+      authDomain: "b-a-b-7bbf8.firebaseapp.com",
+      databaseURL: "https://b-a-b-7bbf8.firebaseio.com",
+      projectId: "b-a-b-7bbf8",
+      storageBucket: "b-a-b-7bbf8.appspot.com",
+      messagingSenderId: "170330985238"
+    };
+    firebase.initializeApp(config);
+
+    var user = window.sessionStorage.getItem('user');
+    const refSchedule = firebase.storage().ref().child("Tritons").child("Schedule");
+    const refProfile = firebase.storage().ref().child("Tritons").child("Profile");
+    const refWeight = firebase.storage().ref().child("Tritons").child("Weight");
+
+    
+
+if(user != null){
+  if (user  == "Coach"){
+        document.getElementById("uploadSchedule").style.display="unset";
+        document.getElementById("uploadWeight").style.display="unset";
+        document.getElementById("uploadProfile").style.display="unset";
+        document.getElementById("profile").src = "Images/C.png";
+      }
+      else{
+        document.getElementById("downloadSchedule").style.display="unset";
+        document.getElementById("downloadWeight").style.display="unset";
+        document.getElementById("downloadProfile").style.display="unset";
+        document.getElementById("profile").src = "Images/profile.png";
+      }
+}
+else{
+  //window.location = "profile.html";
+  document.getElementById("downloadSchedule").style.display="unset";
+  document.getElementById("downloadWeight").style.display="unset";
+  document.getElementById("downloadProfile").style.display="unset";
+  document.getElementById("profile").src = "Images/user.png";
+}
+
+function uploadSchedule(){
+  const file = document.querySelector('#uploadS').files[0];
+  refSchedule.put(file);
+}
+
+function uploadProfile(){
+  
+}
+
+function uploadWeight(){
+  
+}
+
+</script> 
 </HTML>
