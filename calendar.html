@@ -103,11 +103,13 @@ function uploadSchedule(){
 }
 
 function uploadProfile(){
-  
+  const file = document.querySelector('#uploadP').files[0];
+  refProfile.put(file);
 }
 
 function uploadWeight(){
-  
+  const file = document.querySelector('#uploadW').files[0];
+  refWeight.put(file);
 }
 
 </script> 
